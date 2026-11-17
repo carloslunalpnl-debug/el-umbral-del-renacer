@@ -1,0 +1,1837 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Umbral del Renacer — Ancla de Poder y Nuevo Ciclo</title>
+    <meta
+      name="description"
+      content="Mini-app interactiva basada en el e-book El Umbral del Renacer de Carlos Luna PNL: Vacío Fértil, Purga Física y Detox Digital, Estándares de Bienestar e instalación del Ancla de Poder PNL."
+    />
+    <meta property="og:title" content="El Umbral del Renacer — Ancla de Poder y Nuevo Ciclo" />
+    <meta
+      property="og:description"
+      content="Guía interactiva de Carlos Luna PNL para despejar tu espacio físico y mental, sellar tus 3 compromisos inquebrantables e instalar tu Ancla de Poder."
+    />
+    <meta
+      property="og:image"
+      content="https://i.postimg.cc/d3YZzwm4/Gemini-Generated-Image-63pqgg63pqgg63pq.jpg"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="El Umbral del Renacer — Ancla de Poder y Nuevo Ciclo" />
+    <meta
+      name="twitter:description"
+      content="Mini-app interactiva basada en el e-book El Umbral del Renacer de Carlos Luna PNL."
+    />
+    <meta
+      name="twitter:image"
+      content="https://i.postimg.cc/d3YZzwm4/Gemini-Generated-Image-63pqgg63pqgg63pq.jpg"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+              sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      html {
+        font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        scroll-behavior: smooth;
+        background-color: #8B1520;
+        color: #FFFDF9;
+      }
+      .font-editorial {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+      }
+      @keyframes breatheCircle {
+        0%, 100% {
+          transform: scale(0.92);
+          opacity: 0.72;
+        }
+        40% {
+          transform: scale(1.08);
+          opacity: 1;
+        }
+        55% {
+          transform: scale(1.08);
+          opacity: 0.95;
+        }
+      }
+      .animate-breathe {
+        animation: breatheCircle 10s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .animate-breathe {
+          animation: none;
+        }
+      }
+    </style>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body class="bg-[#8B1520] text-[#FFFDF9] antialiased selection:bg-amber-200 selection:text-red-950">
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const { useState, useEffect, useMemo, useRef } = React;
+
+      /* ---------- Inline Accessible SVG Icons ---------- */
+      const IconArrowRight = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+        </svg>
+      );
+      const IconSun = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
+        </svg>
+      );
+      const IconCheck = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M20 6 9 17l-5-5" />
+        </svg>
+      );
+      const IconCheckCircle = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" />
+        </svg>
+      );
+      const IconInfo = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" /><path d="M12 16v-4" /><path d="M12 8h.01" />
+        </svg>
+      );
+      const IconPlus = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M5 12h14" /><path d="M12 5v14" />
+        </svg>
+      );
+      const IconTrash = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+        </svg>
+      );
+      const IconRotateCcw = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" />
+        </svg>
+      );
+      const IconLock = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        </svg>
+      );
+      const IconEdit = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M12 20h9" /><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+        </svg>
+      );
+      const IconCopy = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+        </svg>
+      );
+      const IconShield = ({ className = 'w-5 h-5' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" /><path d="m9 12 2 2 4-4" />
+        </svg>
+      );
+      const IconPlay = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <polygon points="6 3 20 12 6 21 6 3" />
+        </svg>
+      );
+      const IconPause = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="6" y="4" width="4" height="16" /><rect x="14" y="4" width="4" height="16" />
+        </svg>
+      );
+      const IconSkip = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <polygon points="5 4 15 12 5 20 5 4" /><line x1="19" x2="19" y1="5" y2="19" />
+        </svg>
+      );
+      const IconVolumeOn = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><path d="M15.54 8.46a5 5 0 0 1 0 7.07" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+        </svg>
+      );
+      const IconVolumeOff = ({ className = 'w-4 h-4' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><line x1="22" x2="16" y1="9" y2="15" /><line x1="16" x2="22" y1="9" y2="15" />
+        </svg>
+      );
+      const IconBook = ({ className = 'w-3.5 h-3.5' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+        </svg>
+      );
+      const IconX = ({ className = 'w-5 h-5' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M18 6 6 18" /><path d="m6 6 12 12" />
+        </svg>
+      );
+      const IconCompass = ({ className = 'w-5 h-5' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" /><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+        </svg>
+      );
+      const IconCheckSquare = ({ className = 'w-5 h-5' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect width="18" height="18" x="3" y="3" rx="2" /><path d="m9 12 2 2 4-4" />
+        </svg>
+      );
+      const IconAnchor = ({ className = 'w-5 h-5' }) => (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="12" cy="5" r="3" /><line x1="12" x2="12" y1="22" y2="8" /><path d="M5 12H2a10 10 0 0 0 20 0h-3" />
+        </svg>
+      );
+
+      /* ---------- Data & Content ---------- */
+      const STORAGE_KEY = 'umbral_renacer_carlos_luna_v1';
+
+      const CATEGORY_LABELS = {
+        fisica: 'Purga Física',
+        digital: 'Detox Digital',
+        matutino: 'Orden Matutino',
+      };
+
+      const SATURATION_GUIDANCE = {
+        fisica: {
+          label: 'Espacio Físico Saturado',
+          insight:
+            'Tu campo visual está sosteniendo demasiados ciclos abiertos. Al despejar tu escritorio y retirar objetos sin uso actual, envías una señal inmediata de alivio a tu sistema nervioso.',
+        },
+        digital: {
+          label: 'Ruido Digital Constante',
+          insight:
+            'Las notificaciones fragmentan la atención ejecutiva y mantienen un tono de alerta sutil. Recuperar tu silencio digital abre espacio cognitivo para decisiones más lúcidas.',
+        },
+        matutino: {
+          label: 'Mañanas Reactivas',
+          insight:
+            'Los primeros 30 minutos del día calibran tu estado neuroquímico. Sustituir la prisa por orden matutino protege tu energía antes de atender demandas externas.',
+        },
+      };
+
+      const INITIAL_PURGE_TASKS = [
+        {
+          id: 'fis-1',
+          category: 'fisica',
+          title: 'Despejar tu superficie principal de trabajo',
+          detail: 'Retira papeles acumulados, cables sueltos y objetos ajenos; conserva únicamente 3 elementos esenciales.',
+          pnlReason: 'La corteza visual procesa cada objeto fuera de lugar como una tarea inconclusa. Un plano limpio reduce la carga mental de forma instantánea.',
+        },
+        {
+          id: 'fis-2',
+          category: 'fisica',
+          title: 'Separar 5 prendas o accesorios de una etapa cerrada',
+          detail: 'Elige piezas que ya no reflejen quién eres hoy y colócalas en una bolsa lista para donar o reciclar.',
+          pnlReason: 'Soltar objetos ligados a identidades pasadas libera congruencia física para habitar tu nuevo ciclo con ligereza.',
+        },
+        {
+          id: 'fis-3',
+          category: 'fisica',
+          title: 'Ventilar y abrir entrada de luz natural',
+          detail: 'Abre ventanas durante 10 minutos para renovar el aire y permitir que la luz real ilumine la habitación.',
+          pnlReason: 'El cambio sensorial de temperatura y luminosidad actúa como marcador fisiológico de transición entre ciclos.',
+        },
+        {
+          id: 'fis-4',
+          category: 'fisica',
+          title: 'Vaciar mesa de noche, cartera o bolsillos',
+          detail: 'Desecha recibos antiguos, envoltorios y notas caducas que generan fricción cotidiana.',
+          pnlReason: 'Ordenar los micro-espacios de inicio y cierre del día consolida la sensación de dominio personal.',
+        },
+        {
+          id: 'dig-1',
+          category: 'digital',
+          title: 'Cerrar pestañas abiertas y vaciar bandeja prioritaria',
+          detail: 'Guarda solo 2 enlaces realmente necesarios en marcadores y archiva correos resueltos.',
+          pnlReason: 'Cada pestaña abierta sostiene una micro-tensión de atención pendiente. Cerrarlas devuelve presencia inmediata.',
+        },
+        {
+          id: 'dig-2',
+          category: 'digital',
+          title: 'Silenciar notificaciones no humanas y depurar 3 apps',
+          detail: 'Desactiva alertas de redes, ofertas o noticias y desinstala aplicaciones que solo consumen tu tiempo.',
+          pnlReason: 'Tu sistema de recompensa dopaminérgica recupera estabilidad cuando deja de responder a interrupciones externas.',
+        },
+        {
+          id: 'dig-3',
+          category: 'digital',
+          title: 'Limpiar descargas y capturas de pantalla duplicadas',
+          detail: 'Elimina al menos 20 archivos temporales o capturas viejas de tu teléfono y ordenador.',
+          pnlReason: 'Un entorno digital ligero acelera tus flujos diarios y elimina la sensación difusa de acumulación.',
+        },
+        {
+          id: 'dig-4',
+          category: 'digital',
+          title: 'Configurar descanso nocturno o escala de grises',
+          detail: 'Activa un horario automático sin alertas a partir de las 21:30 para proteger tu descanso.',
+          pnlReason: 'La ausencia de estímulos luminosos y alertas nocturnas facilita la consolidación emocional durante el sueño.',
+        },
+        {
+          id: 'mat-1',
+          category: 'matutino',
+          title: 'Preparar la víspera tu vaso de agua, ropa y cuaderno',
+          detail: 'Deja listos los elementos de tu primera hora antes de dormir para evitar decisiones innecesarias.',
+          pnlReason: 'Reducir fricción en la primera hora preserva tu fuerza de voluntad para lo que verdaderamente importa.',
+        },
+        {
+          id: 'mat-2',
+          category: 'matutino',
+          title: 'Proteger los primeros 30 minutos sin pantallas',
+          detail: 'Evita abrir redes sociales, mensajería o noticias apenas despiertas.',
+          pnlReason: 'En estado alfa matutino eres altamente sugestionable; protege ese umbral con intención propia antes que con ruido ajeno.',
+        },
+        {
+          id: 'mat-3',
+          category: 'matutino',
+          title: 'Definir una sola prioridad vital antes de las 9:00',
+          detail: 'Escribe en una línea la única acción que haría que tu día valga la pena.',
+          pnlReason: 'El enfoque unidireccional alinea tu sistema reticular activador hacia soluciones concretas.',
+        },
+        {
+          id: 'mat-4',
+          category: 'matutino',
+          title: 'Instalar un cierre de 3 minutos al final de la tarde',
+          detail: 'Ordena tu escritorio al terminar la jornada para despertar al día siguiente en un Vacío Fértil.',
+          pnlReason: 'Cerrar el ciclo diario con orden físico enseña a tu mente a descansar sin pendientes abiertos.',
+        },
+      ];
+
+      const WELLNESS_PILLARS = [
+        'Cuerpo y Energía',
+        'Mente y Foco',
+        'Límites y Tiempo',
+        'Presencia Emocional',
+      ];
+
+      const NON_NEGOTIABLE_PRESETS = [
+        {
+          label: 'Sueño Sagrado',
+          pillar: 'Cuerpo y Energía',
+          statement: 'Protejo 7.5 horas de descanso real dejando el teléfono cargando fuera del dormitorio.',
+          trigger: 'Cada noche a las 22:00 al apagar las luces principales',
+          boundary: 'No reviso pantallas ni respondo mensajes laborales después de las 21:30',
+        },
+        {
+          label: 'Silencio Matutino',
+          pillar: 'Mente y Foco',
+          statement: 'Dedico mis primeros 25 minutos del día a respirar, hidratarme y escribir mi intención antes de ver el mundo exterior.',
+          trigger: 'Justo al despertar y beber un vaso de agua natural',
+          boundary: 'No abro redes sociales ni noticias antes de completar mi ritual de inicio',
+        },
+        {
+          label: 'Movimiento Diario',
+          pillar: 'Cuerpo y Energía',
+          statement: 'Regalo a mi cuerpo al menos 30 minutos de movimiento consciente para liberar tensión y oxigenar mi mente.',
+          trigger: 'Al finalizar mi bloque de enfoque matutino o al caer la tarde',
+          boundary: 'No pospongo mi movimiento por reuniones no urgentes',
+        },
+        {
+          label: 'Límite Digital',
+          pillar: 'Límites y Tiempo',
+          statement: 'Cierro mi jornada laboral con un ritual claro de desconexión para habitar plenamente mi vida personal.',
+          trigger: 'Al cerrar la tapa del portátil y ordenar mi mesa',
+          boundary: 'No acepto tareas de último minuto fuera de horario salvo emergencia real',
+        },
+        {
+          label: 'Pausa de Presencia',
+          pillar: 'Presencia Emocional',
+          statement: 'Activo mi Ancla de Poder PNL tres veces al día para recalibrar mi postura y serenidad interior.',
+          trigger: 'Antes de entrar a conversaciones importantes o al cambiar de actividad',
+          boundary: 'No reacciono en automático desde la prisa o el estrés ajeno',
+        },
+      ];
+
+      const ANCHOR_POINTS = [
+        {
+          id: 'pulgar',
+          label: 'Pulgar e Índice',
+          shortLabel: 'Pulgar e Índice',
+          instruction: 'Une con presión firme y deliberada la yema de tu dedo pulgar contra la yema del índice en tu mano dominante.',
+        },
+        {
+          id: 'pecho',
+          label: 'Centro del Pecho',
+          shortLabel: 'Centro del Pecho',
+          instruction: 'Apoya la palma abierta y cálida de tu mano derecha sobre el centro de tu esternón sintiendo tu respiración.',
+        },
+        {
+          id: 'muneca',
+          label: 'Muñeca Interna',
+          shortLabel: 'Muñeca Interna',
+          instruction: 'Sujeta suavemente la cara interna de tu muñeca opuesta con tres dedos, percibiendo el pulso estable.',
+        },
+      ];
+
+      const ANCHOR_PHRASE_PRESETS = [
+        'Presencia Inquebrantable',
+        'Calma Lúcida',
+        'Certeza Serena',
+        'Poder Propio',
+      ];
+
+      const ANCHOR_PHASES = [
+        {
+          step: 1,
+          title: 'Respiración y Despeje Somático',
+          subtitle: 'Fase de calibración fisiológica',
+          breathCue: 'Inhala 4s · Sostén 2s · Exhala 6s',
+          instruction: 'Suelta los hombros lejos de tus oídos, relaja la mandíbula y apoya ambos pies con firmeza en el suelo. Deja ir cualquier tensión residual del día.',
+          ratioStart: 0,
+          ratioEnd: 0.25,
+        },
+        {
+          step: 2,
+          title: 'Evocación del Estado de Poder',
+          subtitle: 'Submodalidades VAKOG en PNL',
+          breathCue: 'Respira amplio y expande el pecho',
+          instruction: 'Recuerda un momento real en el que te sentiste completamente capaz, lúcida y en paz. Mira a través de tus propios ojos lo que veías, escucha los sonidos y amplifica esa sensación cálida hasta hacerla intensa.',
+          ratioStart: 0.25,
+          ratioEnd: 0.58,
+        },
+        {
+          step: 3,
+          title: 'Fijación Física en el Punto Cumbre',
+          subtitle: 'Instalación del ancla cinestésica',
+          breathCue: 'Mantén la intensidad y aplica presión firme',
+          instruction: 'Justo cuando esa energía alcanza su máximo esplendor, aplica tu contacto físico elegido con firmeza constante y repite internamente tu palabra ancla.',
+          ratioStart: 0.58,
+          ratioEnd: 0.85,
+        },
+        {
+          step: 4,
+          title: 'Ruptura de Estado y Prueba Real',
+          subtitle: 'Verificación neurológica del circuito',
+          breathCue: 'Suelta el contacto · Respira neutro · Dispara el ancla',
+          instruction: 'Libera el punto físico, mueve suavemente las manos y toma una respiración neutra. Ahora vuelve a presionar tu punto ancla durante 3 segundos y observa cómo regresa el estado.',
+          ratioStart: 0.85,
+          ratioEnd: 1,
+        },
+      ];
+
+      const DEFAULT_STATE = {
+        saturationFocus: 'fisica',
+        completedTaskIds: [],
+        customTasks: [],
+        nonNegotiables: [
+          { id: 1, pillar: 'Cuerpo y Energía', statement: '', trigger: '', boundary: '', sealed: false },
+          { id: 2, pillar: 'Mente y Foco', statement: '', trigger: '', boundary: '', sealed: false },
+          { id: 3, pillar: 'Límites y Tiempo', statement: '', trigger: '', boundary: '', sealed: false },
+        ],
+        anchorPoint: 'pulgar',
+        anchorPhrase: 'Presencia Inquebrantable',
+        anchorDuration: 90,
+        anchorLogs: [],
+      };
+
+      function playSoftChime(kind = 'phase') {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        try {
+          const ctx = new AudioCtx();
+          const now = ctx.currentTime;
+          const freqs = kind === 'complete' ? [528, 660, 792] : [528, 660];
+          freqs.forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.11);
+            gain.gain.setValueAtTime(0.0001, now + idx * 0.11);
+            gain.gain.exponentialRampToValueAtTime(0.06, now + idx * 0.11 + 0.04);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.11 + 1.15);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now + idx * 0.11);
+            osc.stop(now + idx * 0.11 + 1.2);
+          });
+          setTimeout(() => {
+            if (ctx.state !== 'closed') ctx.close().catch(() => {});
+          }, 1800);
+        } catch (e) {}
+      }
+
+      /* ---------- Architectural Sanctuary SVG Artwork for Screen 1 ---------- */
+      const SanctuaryArtwork = () => (
+        <svg viewBox="0 0 480 360" className="w-full h-full object-cover" role="img" aria-label="Ilustración arquitectónica minimalista del Vacío Fértil bañada en luz dorada cálida y tonos navideños">
+          <defs>
+            <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#166534" />
+              <stop offset="55%" stopColor="#15803D" />
+              <stop offset="100%" stopColor="#FEF3C7" />
+            </linearGradient>
+            <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FFFDF9" />
+              <stop offset="100%" stopColor="#FDF7F2" />
+            </linearGradient>
+            <linearGradient id="sunBeam" x1="100%" y1="0%" x2="20%" y2="100%">
+              <stop offset="0%" stopColor="#D97706" stopOpacity="0.30" />
+              <stop offset="100%" stopColor="#FEF3C7" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="plinthGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#EFE4D6" />
+              <stop offset="100%" stopColor="#DECBB6" />
+            </linearGradient>
+          </defs>
+          <rect width="480" height="360" fill="url(#wallGrad)" />
+          <path d="M52 278 L52 135 A76 76 0 0 1 204 135 L204 278 Z" fill="url(#skyGrad)" />
+          <circle cx="152" cy="122" r="22" fill="#FDE68A" opacity="0.95" />
+          <path d="M52 248 Q128 232 204 252 L204 278 L52 278 Z" fill="#14532D" opacity="0.28" />
+          <polygon points="152,122 440,360 120,360" fill="url(#sunBeam)" />
+          <rect x="0" y="278" width="480" height="82" fill="#F8EFE6" />
+          <line x1="0" y1="278" x2="480" y2="278" stroke="#E8D7C3" strokeWidth="1.5" />
+          <rect x="278" y="220" width="118" height="106" rx="4" fill="url(#plinthGrad)" />
+          <rect x="278" y="220" width="118" height="6" fill="#FFFDF9" />
+          <path d="M300 184 Q337 190 374 184 Q370 220 337 220 Q304 220 300 184 Z" fill="#FFFDF9" stroke="#D97706" strokeWidth="1.5" />
+          <ellipse cx="337" cy="184" rx="37" ry="6" fill="#FEF3C7" stroke="#D97706" strokeWidth="1.2" />
+          <path d="M304 184 Q337 188 370 184" fill="none" stroke="#991B1B" strokeWidth="1.5" opacity="0.55" />
+        </svg>
+      );
+
+      /* ---------- Screen 1: Vacío Fértil ---------- */
+      const ScreenVacioFertil = ({ saturationFocus, onSelectSaturation, onNavigate, completedPurgeCount, totalPurgeCount }) => {
+        const currentGuidance = SATURATION_GUIDANCE[saturationFocus];
+        return (
+          <section aria-labelledby="vacio-fertil-heading" className="space-y-12 sm:space-y-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+              <div className="lg:col-span-7 flex flex-col justify-between py-2">
+                <div className="space-y-6">
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-medium tracking-wide text-amber-200">
+                    <span>Carlos Luna PNL</span>
+                    <span aria-hidden="true">·</span>
+                    <span>El Umbral del Renacer</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Capítulo I: Vacío Fértil</span>
+                  </div>
+                  <h1 id="vacio-fertil-heading" className="font-editorial text-4xl sm:text-5xl lg:text-[3.4rem] font-semibold leading-[1.08] tracking-tight text-[#FFFDF9]" style={{ textWrap: 'balance' }}>
+                    Despeja el espacio físico y mental antes de sembrar tu nuevo ciclo
+                  </h1>
+                  <p className="text-base sm:text-lg leading-relaxed text-red-50/90 max-w-2xl">
+                    En Programación Neurolingüística, ninguna intención nueva logra arraigarse en un sistema nervioso saturado. Crear un <strong className="font-semibold text-white">Vacío Fértil</strong> significa restar ruido visual, ciclos digitales abiertos y prisa acumulada para que tu mente reconozca un umbral limpio donde anclar estándares reales.
+                  </p>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-amber-200/20 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+                  <button
+                    type="button"
+                    onClick={() => onNavigate(2, saturationFocus)}
+                    className="inline-flex items-center justify-center gap-2.5 min-h-[48px] px-6 py-3 rounded-xl bg-[#15803D] hover:bg-[#166534] text-white font-medium text-sm transition-colors shadow-sm whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    <span>Comenzar Purga Consciente</span>
+                    <IconArrowRight />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => onNavigate(4)}
+                    className="inline-flex items-center justify-center gap-2 min-h-[48px] px-5 py-3 rounded-xl bg-[#FFFDF9] hover:bg-amber-50 text-[#8B1520] border border-amber-200/80 font-medium text-sm transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                  >
+                    <IconSun className="w-4 h-4 text-[#D97706]" />
+                    <span>Ir al Ancla de Poder PNL</span>
+                  </button>
+                </div>
+              </div>
+
+              <figure className="lg:col-span-5 flex flex-col">
+                <div className="relative flex-1 min-h-[260px] sm:min-h-[320px] rounded-2xl overflow-hidden border border-amber-200/50 bg-[#FFFDF9] shadow-lg">
+                  <SanctuaryArtwork />
+                </div>
+                <figcaption className="mt-3 text-xs font-serif italic text-red-100/85">
+                  Fig. 01 — El recipiente limpio precede a toda transformación duradera.
+                </figcaption>
+              </figure>
+            </div>
+
+            <div className="pt-8 border-t border-amber-200/20">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-8">
+                <div>
+                  <p className="text-xs font-medium tracking-wide text-[#FDE68A]">Fundamentos del Método</p>
+                  <h2 className="font-editorial text-2xl sm:text-3xl font-semibold text-[#FFFDF9] mt-1">
+                    Por qué limpiar antes de proyectar metas
+                  </h2>
+                </div>
+                <p className="text-xs font-mono tabular-nums text-red-100/85">
+                  Progreso actual de purga: {completedPurgeCount}/{totalPurgeCount}
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                <article className="p-6 rounded-2xl bg-[#FFFDF9] border border-amber-200/60 space-y-3 text-slate-900">
+                  <p className="font-mono text-xs font-semibold text-[#991B1B] tabular-nums">01.</p>
+                  <h3 className="font-editorial text-xl font-semibold text-slate-900">Economía de Atención</h3>
+                  <p className="text-sm leading-relaxed text-slate-600">
+                    Cada objeto olvidado sobre tu mesa y cada pestaña abierta en tu pantalla consumen memoria de trabajo silenciosa. Ordenar libera energía cognitiva disponible hoy mismo.
+                  </p>
+                </article>
+                <article className="p-6 rounded-2xl bg-[#FFFDF9] border border-amber-200/60 space-y-3 text-slate-900">
+                  <p className="font-mono text-xs font-semibold text-[#15803D] tabular-nums">02.</p>
+                  <h3 className="font-editorial text-xl font-semibold text-slate-900">Congruencia Somática</h3>
+                  <p className="text-sm leading-relaxed text-slate-600">
+                    El inconsciente lee el entorno antes que las palabras. Cuando simplificas tu espacio físico, tu respiración desciende y se vuelve receptiva a nuevos estándares.
+                  </p>
+                </article>
+                <article className="p-6 rounded-2xl bg-[#FFFDF9] border border-amber-200/60 space-y-3 text-slate-900">
+                  <p className="font-mono text-xs font-semibold text-[#D97706] tabular-nums">03.</p>
+                  <h3 className="font-editorial text-xl font-semibold text-slate-900">Secuencia de Cuatro Pasos</h3>
+                  <p className="text-sm leading-relaxed text-slate-600">
+                    Recorre este umbral en orden: primero purga lo que pesa, luego sella tus 3 compromisos inquebrantables y finalmente instala tu ancla cinestésica de poder.
+                  </p>
+                </article>
+              </div>
+            </div>
+
+            <div className="p-6 sm:p-8 rounded-2xl bg-[#FFFDF9] border border-amber-200/60 space-y-6 text-slate-900">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="space-y-1">
+                  <p className="text-xs font-medium text-[#991B1B]">Calibración Inicial · 10 segundos</p>
+                  <h2 className="font-editorial text-2xl font-semibold text-slate-900">
+                    ¿Dónde percibes mayor saturación en este momento?
+                  </h2>
+                </div>
+                <div role="radiogroup" aria-label="Área de mayor saturación actual" className="flex flex-wrap items-center gap-2">
+                  {[
+                    { key: 'fisica', label: 'Espacio Físico' },
+                    { key: 'digital', label: 'Ruido Digital' },
+                    { key: 'matutino', label: 'Rutina Matutina' },
+                  ].map(({ key, label }) => {
+                    const active = saturationFocus === key;
+                    return (
+                      <button
+                        key={key}
+                        type="button"
+                        role="radio"
+                        aria-checked={active}
+                        onClick={() => onSelectSaturation(key)}
+                        className={`min-h-[44px] px-4 py-2 rounded-xl text-sm font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+                          active ? 'bg-[#991B1B] text-white shadow-sm' : 'bg-[#FDF7F2] text-slate-700 border border-amber-200/70 hover:border-red-300'
+                        }`}
+                      >
+                        {label}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="p-5 rounded-xl bg-[#FDF7F2] border border-amber-200/60 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="space-y-1.5 max-w-2xl">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-[#15803D]">
+                    <IconCheckCircle />
+                    <span>Enfoque sugerido: {currentGuidance.label}</span>
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate-700">{currentGuidance.insight}</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => onNavigate(2, saturationFocus)}
+                  className="inline-flex items-center justify-center gap-2 min-h-[44px] px-5 py-2.5 rounded-xl bg-[#15803D] hover:bg-[#166534] text-white font-medium text-sm transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                >
+                  <span>Abrir Checklist Filtrada</span>
+                  <IconArrowRight />
+                </button>
+              </div>
+            </div>
+          </section>
+        );
+      };
+
+      /* ---------- Screen 2: Purga Física & Detox Digital ---------- */
+      const ScreenPurgaChecklist = ({
+        tasks,
+        completedTaskIds,
+        activeFilter,
+        onChangeFilter,
+        onToggleTask,
+        onAddCustomTask,
+        onDeleteCustomTask,
+        onResetCompleted,
+        onNavigate,
+      }) => {
+        const [expandedInsightId, setExpandedInsightId] = useState(null);
+        const [newTitle, setNewTitle] = useState('');
+        const [newDetail, setNewDetail] = useState('');
+        const [newCategory, setNewCategory] = useState('fisica');
+        const [confirmReset, setConfirmReset] = useState(false);
+
+        const completedCount = useMemo(
+          () => tasks.filter((t) => completedTaskIds.includes(t.id)).length,
+          [tasks, completedTaskIds]
+        );
+        const totalCount = tasks.length;
+        const percentage = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
+        const isAllDone = totalCount > 0 && completedCount === totalCount;
+
+        const filteredTasks = useMemo(() => {
+          if (activeFilter === 'all') return tasks;
+          return tasks.filter((t) => t.category === activeFilter);
+        }, [tasks, activeFilter]);
+
+        const categoryCounts = useMemo(() => {
+          const counts = {
+            fisica: { done: 0, total: 0 },
+            digital: { done: 0, total: 0 },
+            matutino: { done: 0, total: 0 },
+          };
+          tasks.forEach((task) => {
+            counts[task.category].total += 1;
+            if (completedTaskIds.includes(task.id)) counts[task.category].done += 1;
+          });
+          return counts;
+        }, [tasks, completedTaskIds]);
+
+        const handleAddSubmit = (e) => {
+          e.preventDefault();
+          const cleanTitle = newTitle.trim();
+          if (!cleanTitle) return;
+          onAddCustomTask(newCategory, cleanTitle, newDetail.trim() || 'Acción personal definida para despejar tu entorno.');
+          setNewTitle('');
+          setNewDetail('');
+        };
+
+        return (
+          <section aria-labelledby="purga-heading" className="space-y-8 sm:space-y-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+              <div className="lg:col-span-7 space-y-3">
+                <div className="flex items-center gap-2 text-xs font-medium text-amber-200">
+                  <span>02. Purga Consciente</span>
+                  <span aria-hidden="true">·</span>
+                  <span>Espacio Físico, Digital y Matutino</span>
+                </div>
+                <h1 id="purga-heading" className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#FFFDF9] leading-tight" style={{ textWrap: 'balance' }}>
+                  Checklist de Purga Física y Detox Digital
+                </h1>
+                <p className="text-sm sm:text-base text-red-50/90 leading-relaxed max-w-2xl">
+                  Marca cada acción conforme la completes en tu entorno real. Cada casilla cerrada reduce carga cognitiva y amplía el silencio mental necesario para el siguiente paso.
+                </p>
+              </div>
+
+              <div className="lg:col-span-5 p-6 rounded-2xl bg-[#FFFDF9] border border-amber-200/60 space-y-4 text-slate-900">
+                <div className="flex items-baseline justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-medium text-slate-500">Nivel de Vacío Fértil</p>
+                    <p className="font-mono text-3xl font-semibold tabular-nums text-slate-900 mt-1">{percentage}%</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="font-mono text-sm font-medium tabular-nums text-slate-700">{completedCount} de {totalCount}</p>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      {isAllDone ? 'Espacio completamente despejado' : percentage >= 50 ? 'Impulso claro en marcha' : 'Listo para comenzar'}
+                    </p>
+                  </div>
+                </div>
+                <div role="progressbar" aria-valuenow={percentage} aria-valuemin={0} aria-valuemax={100} aria-label="Progreso de purga" className="w-full h-3 rounded-full bg-amber-100/70 overflow-hidden">
+                  <div className="h-full rounded-full transition-all duration-300 ease-out" style={{ width: `${percentage}%`, backgroundColor: isAllDone ? '#D97706' : '#15803D' }} />
+                </div>
+                <div className="grid grid-cols-3 gap-2 pt-2 border-t border-amber-100 text-xs">
+                  <div>
+                    <span className="text-slate-500 block">Física</span>
+                    <span className="font-mono font-medium tabular-nums text-slate-800">{categoryCounts.fisica.done}/{categoryCounts.fisica.total}</span>
+                  </div>
+                  <div>
+                    <span className="text-slate-500 block">Digital</span>
+                    <span className="font-mono font-medium tabular-nums text-slate-800">{categoryCounts.digital.done}/{categoryCounts.digital.total}</span>
+                  </div>
+                  <div>
+                    <span className="text-slate-500 block">Matutino</span>
+                    <span className="font-mono font-medium tabular-nums text-slate-800">{categoryCounts.matutino.done}/{categoryCounts.matutino.total}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-3 border-b border-amber-200/20">
+              <div role="tablist" aria-label="Filtrar tareas por área" className="flex flex-wrap items-center gap-1.5 p-1 bg-[#7F1D1D]/80 border border-amber-200/25 rounded-xl">
+                {[
+                  { id: 'all', label: 'Todas' },
+                  { id: 'fisica', label: 'Purga Física' },
+                  { id: 'digital', label: 'Detox Digital' },
+                  { id: 'matutino', label: 'Orden Matutino' },
+                ].map((tab) => {
+                  const active = activeFilter === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      role="tab"
+                      aria-selected={active}
+                      onClick={() => onChangeFilter(tab.id)}
+                      className={`min-h-[40px] px-3.5 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+                        active ? 'bg-[#FFFDF9] text-[#8B1520] shadow-sm' : 'text-red-100 hover:text-white'
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {completedCount > 0 && (
+                <div className="flex items-center gap-2">
+                  {!confirmReset ? (
+                    <button
+                      type="button"
+                      onClick={() => setConfirmReset(true)}
+                      className="inline-flex items-center gap-1.5 min-h-[40px] px-3 py-2 rounded-lg text-xs font-medium text-red-100 hover:text-white hover:bg-white/10 cursor-pointer"
+                    >
+                      <IconRotateCcw className="w-3.5 h-3.5" />
+                      <span>Desmarcar todo</span>
+                    </button>
+                  ) : (
+                    <div className="flex items-center gap-2 text-xs">
+                      <span className="text-red-100">¿Reiniciar lista?</span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          onResetCompleted();
+                          setConfirmReset(false);
+                        }}
+                        className="min-h-[36px] px-3 py-1.5 rounded-lg bg-[#D97706] text-white font-medium hover:bg-[#B45309] cursor-pointer"
+                      >
+                        Confirmar
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setConfirmReset(false)}
+                        className="min-h-[36px] px-3 py-1.5 rounded-lg bg-white/15 text-white font-medium hover:bg-white/25 cursor-pointer"
+                      >
+                        Cancelar
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+
+            <div className="bg-[#FFFDF9] text-slate-900 rounded-2xl border border-amber-200/60 divide-y divide-amber-100/80 overflow-hidden">
+              {filteredTasks.map((task) => {
+                const isChecked = completedTaskIds.includes(task.id);
+                const isExpanded = expandedInsightId === task.id;
+                return (
+                  <div key={task.id} className={isChecked ? 'bg-emerald-50/45' : 'bg-[#FFFDF9] hover:bg-[#FDF7F2]'}>
+                    <div className="flex items-start gap-3 sm:gap-4 p-4 sm:p-5">
+                      <button
+                        type="button"
+                        role="checkbox"
+                        aria-checked={isChecked}
+                        aria-label={`Marcar como completada: ${task.title}`}
+                        onClick={() => onToggleTask(task.id)}
+                        className="min-w-[44px] min-h-[44px] -ml-1.5 flex items-center justify-center shrink-0 cursor-pointer rounded-xl"
+                      >
+                        <span className={`w-6 h-6 rounded-lg border flex items-center justify-center transition-colors ${isChecked ? 'bg-[#15803D] border-[#15803D] text-white' : 'bg-white border-slate-300 text-transparent hover:border-[#991B1B]'}`}>
+                          <IconCheck />
+                        </span>
+                      </button>
+
+                      <div className="flex-1 min-w-0 pt-1.5">
+                        <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500 mb-1">
+                          <span>{CATEGORY_LABELS[task.category]}</span>
+                          {task.isCustom && (
+                            <>
+                              <span aria-hidden="true">·</span>
+                              <span className="text-[#991B1B] font-medium">Tarea Personal</span>
+                            </>
+                          )}
+                          {isChecked && (
+                            <>
+                              <span aria-hidden="true">·</span>
+                              <span className="text-[#15803D] font-medium">Completada</span>
+                            </>
+                          )}
+                        </div>
+                        <button type="button" onClick={() => onToggleTask(task.id)} className="text-left w-full cursor-pointer">
+                          <p className={`text-sm sm:text-base font-medium leading-snug ${isChecked ? 'line-through text-slate-400' : 'text-slate-900'}`}>
+                            {task.title}
+                          </p>
+                          <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">{task.detail}</p>
+                        </button>
+                        {isExpanded && (
+                          <div className="mt-3 p-3.5 rounded-xl bg-[#FDF7F2] border border-amber-200/70 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                            <span className="font-semibold text-[#991B1B]">Enfoque PNL: </span>
+                            {task.pnlReason}
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="flex items-center gap-1 pt-1 shrink-0">
+                        <button
+                          type="button"
+                          onClick={() => setExpandedInsightId(isExpanded ? null : task.id)}
+                          aria-expanded={isExpanded}
+                          aria-label="Ver fundamento PNL"
+                          className={`min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center cursor-pointer ${isExpanded ? 'bg-red-50 text-[#991B1B]' : 'text-slate-400 hover:text-slate-700 hover:bg-amber-50'}`}
+                        >
+                          <IconInfo />
+                        </button>
+                        {task.isCustom && (
+                          <button
+                            type="button"
+                            onClick={() => onDeleteCustomTask(task.id)}
+                            aria-label={`Eliminar tarea: ${task.title}`}
+                            className="min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center text-slate-400 hover:text-red-700 hover:bg-red-50 cursor-pointer"
+                          >
+                            <IconTrash />
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <form onSubmit={handleAddSubmit} className="p-5 sm:p-6 rounded-2xl bg-[#FFFDF9] border border-amber-200/60 space-y-4 text-slate-900">
+              <div className="space-y-1">
+                <h2 className="font-editorial text-xl font-semibold text-slate-900">Agregar una acción propia de purga</h2>
+                <p className="text-xs sm:text-sm text-slate-600">¿Hay un cajón específico, carpeta en la nube o pendiente concreto que quieras soltar hoy?</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
+                <div className="md:col-span-3">
+                  <select value={newCategory} onChange={(e) => setNewCategory(e.target.value)} className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl bg-white border border-amber-200/80 text-sm text-slate-800">
+                    <option value="fisica">Purga Física</option>
+                    <option value="digital">Detox Digital</option>
+                    <option value="matutino">Orden Matutino</option>
+                  </select>
+                </div>
+                <div className="md:col-span-4">
+                  <input type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} placeholder="Ej. Vaciar carpeta de escritorio 2025" className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl bg-white border border-amber-200/80 text-sm text-slate-900 placeholder:text-slate-400" />
+                </div>
+                <div className="md:col-span-3">
+                  <input type="text" value={newDetail} onChange={(e) => setNewDetail(e.target.value)} placeholder="Detalle breve (opcional)" className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl bg-white border border-amber-200/80 text-sm text-slate-900 placeholder:text-slate-400" />
+                </div>
+                <div className="md:col-span-2">
+                  <button type="submit" disabled={!newTitle.trim()} className="w-full min-h-[44px] px-4 py-2.5 rounded-xl bg-[#15803D] hover:bg-[#166534] disabled:bg-slate-300 text-white font-medium text-sm inline-flex items-center justify-center gap-1.5 cursor-pointer">
+                    <IconPlus />
+                    <span>Agregar</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+              <button type="button" onClick={() => onNavigate(1)} className="min-h-[44px] px-5 py-2.5 rounded-xl border border-amber-200/35 bg-white/10 hover:bg-white/20 text-[#FFFDF9] text-sm font-medium cursor-pointer">
+                Volver a Vacío Fértil
+              </button>
+              <button type="button" onClick={() => onNavigate(3)} className="min-h-[48px] px-6 py-3 rounded-xl bg-[#FFFDF9] hover:bg-amber-50 text-[#8B1520] text-sm font-semibold inline-flex items-center justify-center gap-2 shadow-sm cursor-pointer">
+                <span>Continuar a Estándares de Bienestar</span>
+                <IconArrowRight />
+              </button>
+            </div>
+          </section>
+        );
+      };
+
+      /* ---------- Screen 3: Non-Negotiables ---------- */
+      const ScreenNonNegotiables = ({ items, onUpdateItem, onNavigate }) => {
+        const [activePresetTarget, setActivePresetTarget] = useState(1);
+        const [copiedPact, setCopiedPact] = useState(false);
+
+        const sealedCount = items.filter((item) => item.sealed).length;
+        const allSealed = sealedCount === 3;
+
+        const applyPreset = (presetIndex) => {
+          const preset = NON_NEGOTIABLE_PRESETS[presetIndex];
+          if (!preset) return;
+          onUpdateItem(activePresetTarget, {
+            pillar: preset.pillar,
+            statement: preset.statement,
+            trigger: preset.trigger,
+            boundary: preset.boundary,
+            sealed: false,
+          });
+        };
+
+        const handleCopyPact = async () => {
+          const lines = [
+            'MIS 3 ESTÁNDARES INQUEBRANTABLES — EL UMBRAL DEL RENACER',
+            '',
+            ...items.map((item, idx) => `${idx + 1}. [${item.pillar}] ${item.statement.trim() || '(Pendiente)'}\n   Disparador: ${item.trigger.trim() || 'Por definir'}\n   Línea de protección: ${item.boundary.trim() || 'Por definir'}`),
+          ].join('\n');
+          try {
+            await navigator.clipboard.writeText(lines);
+            setCopiedPact(true);
+            setTimeout(() => setCopiedPact(false), 2500);
+          } catch (e) {}
+        };
+
+        return (
+          <section aria-labelledby="standards-heading" className="space-y-8 sm:space-y-10">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+              <div className="space-y-3 max-w-2xl">
+                <div className="flex items-center gap-2 text-xs font-medium text-amber-200">
+                  <span>03. Estándares de Bienestar</span>
+                  <span aria-hidden="true">·</span>
+                  <span>Tres Compromisos Inquebrantables</span>
+                </div>
+                <h1 id="standards-heading" className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#FFFDF9] leading-tight" style={{ textWrap: 'balance' }}>
+                  Diseña tus 3 &ldquo;Non-Negotiables&rdquo; para el año entrante
+                </h1>
+                <p className="text-sm sm:text-base text-red-50/90 leading-relaxed">
+                  Las metas dependen de la motivación; los estándares gobiernan tu identidad cotidiana. Redacta en presente afirmativo los 3 pactos de autocuidado que protegerás sin excusas.
+                </p>
+              </div>
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#FFFDF9] border border-amber-200/60 flex items-center gap-4 shrink-0 text-slate-900">
+                <div className="w-11 h-11 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-center text-[#D97706]">
+                  <IconShield />
+                </div>
+                <div>
+                  <p className="text-xs text-slate-500">Compromisos sellados</p>
+                  <p className="font-mono text-2xl font-semibold tabular-nums text-slate-900">{sealedCount} / 3</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-[#FFFDF9] border border-amber-200/60 space-y-3 text-slate-900">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <p className="text-xs font-medium text-slate-700">
+                  Plantillas de inspiración rápida — aplica una base al Compromiso #{activePresetTarget}:
+                </p>
+                <div className="flex items-center gap-1.5">
+                  {[1, 2, 3].map((num) => (
+                    <button
+                      key={num}
+                      type="button"
+                      onClick={() => setActivePresetTarget(num)}
+                      className={`min-h-[36px] px-3 py-1 rounded-lg text-xs font-mono font-medium cursor-pointer ${activePresetTarget === num ? 'bg-[#991B1B] text-white' : 'bg-[#FDF7F2] text-slate-600 border border-amber-200/70 hover:border-red-300'}`}
+                    >
+                      #{num}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                {NON_NEGOTIABLE_PRESETS.map((preset, idx) => (
+                  <button
+                    key={preset.label}
+                    type="button"
+                    onClick={() => applyPreset(idx)}
+                    className="min-h-[40px] px-3.5 py-2 rounded-xl bg-[#FDF7F2] hover:bg-emerald-50 border border-amber-200/70 hover:border-[#15803D]/40 text-xs sm:text-sm font-medium text-slate-700 hover:text-[#15803D] cursor-pointer whitespace-nowrap shrink-0"
+                  >
+                    + {preset.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {items.map((item, idx) => {
+                const canSeal = item.statement.trim().length >= 8;
+                return (
+                  <article key={item.id} className={`rounded-2xl border p-6 flex flex-col justify-between transition-colors text-slate-900 ${item.sealed ? 'bg-[#FFFBEB] border-[#D97706]' : 'bg-[#FFFDF9] border-amber-200/60'}`}>
+                    <div className="space-y-5">
+                      <div className="flex items-center justify-between gap-2 pb-3 border-b border-amber-100">
+                        <span className="font-mono text-xs font-semibold tabular-nums text-[#991B1B]">Estándar 0{idx + 1}</span>
+                        <span className={`text-xs font-medium ${item.sealed ? 'text-[#15803D]' : 'text-slate-500'}`}>{item.sealed ? 'Sellado para el ciclo' : 'En redacción'}</span>
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <label className="block text-xs font-medium text-slate-600">Pilar de bienestar</label>
+                        <select value={item.pillar} disabled={item.sealed} onChange={(e) => onUpdateItem(item.id, { pillar: e.target.value })} className="w-full min-h-[44px] px-3 py-2 rounded-xl bg-white border border-amber-200/80 text-sm text-slate-900 disabled:opacity-75">
+                          {WELLNESS_PILLARS.map((p) => <option key={p} value={p}>{p}</option>)}
+                        </select>
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <label className="block text-xs font-medium text-slate-600">Mi compromiso en presente afirmativo</label>
+                        <textarea rows={3} disabled={item.sealed} value={item.statement} onChange={(e) => onUpdateItem(item.id, { statement: e.target.value })} placeholder="Ej. Protejo mis primeros 25 minutos del día en silencio antes de abrir pantallas." className="w-full p-3 rounded-xl bg-white border border-amber-200/80 text-sm text-slate-900 placeholder:text-slate-400 leading-relaxed resize-none disabled:opacity-80" />
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <label className="block text-xs font-medium text-slate-600">Disparador diario (cuándo ocurre)</label>
+                        <input type="text" disabled={item.sealed} value={item.trigger} onChange={(e) => onUpdateItem(item.id, { trigger: e.target.value })} placeholder="Ej. Al despertar y beber un vaso de agua" className="w-full min-h-[44px] px-3 py-2 rounded-xl bg-white border border-amber-200/80 text-sm text-slate-900 placeholder:text-slate-400 disabled:opacity-80" />
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <label className="block text-xs font-medium text-slate-600">Línea de protección (a qué digo NO)</label>
+                        <input type="text" disabled={item.sealed} value={item.boundary} onChange={(e) => onUpdateItem(item.id, { boundary: e.target.value })} placeholder="Ej. No reviso mensajes antes de las 8:00" className="w-full min-h-[44px] px-3 py-2 rounded-xl bg-white border border-amber-200/80 text-sm text-slate-900 placeholder:text-slate-400 disabled:opacity-80" />
+                      </div>
+                    </div>
+
+                    <div className="pt-5 mt-5 border-t border-amber-100">
+                      <button
+                        type="button"
+                        disabled={!item.sealed && !canSeal}
+                        onClick={() => onUpdateItem(item.id, { sealed: !item.sealed })}
+                        className={`w-full min-h-[46px] px-4 py-2.5 rounded-xl text-sm font-medium inline-flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 ${item.sealed ? 'bg-white border border-amber-300 text-slate-700 hover:bg-amber-50' : 'bg-[#D97706] hover:bg-[#B45309] text-white'}`}
+                      >
+                        {item.sealed ? (<><IconEdit /><span>Editar Estándar</span></>) : (<><IconLock /><span>Fijar Compromiso</span></>)}
+                      </button>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+
+            <div className={`p-6 rounded-2xl border flex flex-col md:flex-row md:items-center justify-between gap-4 text-slate-900 ${allSealed ? 'bg-gradient-to-r from-[#FFFBEB] via-[#FFFDF9] to-emerald-50/70 border-[#D97706]' : 'bg-[#FFFDF9] border-amber-200/60'}`}>
+              <div className="space-y-1">
+                <p className="font-editorial text-2xl font-semibold text-slate-900">
+                  {allSealed ? 'Tus 3 Estándares Inquebrantables están sellados' : 'Manifiesto de Estándares en construcción'}
+                </p>
+                <p className="text-sm text-slate-600">
+                  {allSealed ? 'Ahora llevaremos esta decisión al cuerpo mediante la instalación somática de tu Ancla de Poder PNL.' : 'Sella tus 3 estándares para consolidar tu pacto antes de pasar al Ancla de Poder.'}
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center gap-3 shrink-0">
+                <button type="button" onClick={handleCopyPact} className="min-h-[44px] px-4 py-2.5 rounded-xl border border-amber-200/80 bg-white hover:bg-amber-50 text-slate-700 text-sm font-medium inline-flex items-center gap-2 cursor-pointer whitespace-nowrap">
+                  {copiedPact ? (<><IconCheck className="w-4 h-4 text-[#15803D]" /><span>Pacto copiado</span></>) : (<><IconCopy /><span>Copiar mis 3 Estándares</span></>)}
+                </button>
+                <button type="button" onClick={() => onNavigate(4)} className="min-h-[48px] px-6 py-3 rounded-xl bg-[#15803D] hover:bg-[#166534] text-white text-sm font-medium inline-flex items-center justify-center gap-2 shadow-sm cursor-pointer whitespace-nowrap">
+                  <span>Instalar Ancla de Poder PNL</span>
+                  <IconArrowRight />
+                </button>
+              </div>
+            </div>
+          </section>
+        );
+      };
+
+      /* ---------- Screen 4: Ancla de Poder PNL ---------- */
+      const ScreenAnclaPNL = ({
+        anchorPoint,
+        anchorPhrase,
+        anchorDuration,
+        onChangePoint,
+        onChangePhrase,
+        onChangeDuration,
+        onLogCompletion,
+        onOpenBitacora,
+      }) => {
+        const [elapsedSec, setElapsedSec] = useState(0);
+        const [isRunning, setIsRunning] = useState(false);
+        const [isCompleted, setIsCompleted] = useState(false);
+        const [intensity, setIntensity] = useState(8);
+        const [logSaved, setLogSaved] = useState(false);
+        const [isVoicePlaying, setIsVoicePlaying] = useState(false);
+        const [showScript, setShowScript] = useState(false);
+        const [voiceError, setVoiceError] = useState(null);
+        const prevStepRef = useRef(1);
+
+        const selectedPointObj = useMemo(
+          () => ANCHOR_POINTS.find((p) => p.id === anchorPoint) || ANCHOR_POINTS[0],
+          [anchorPoint]
+        );
+        const progressRatio = Math.min(1, elapsedSec / anchorDuration);
+        const currentPhase = useMemo(() => {
+          const found = ANCHOR_PHASES.find((phase) => progressRatio >= phase.ratioStart && progressRatio < phase.ratioEnd);
+          return found || ANCHOR_PHASES[ANCHOR_PHASES.length - 1];
+        }, [progressRatio]);
+
+        const cleanPhrase = anchorPhrase.trim() || 'Presencia Inquebrantable';
+
+        const mexicanScript = useMemo(() => {
+          const pointAction =
+            anchorPoint === 'pecho'
+              ? 'apoya tu mano abierta y cálida justo sobre el centro de tu pecho'
+              : anchorPoint === 'muneca'
+              ? 'presiona suavemente con tres dedos la cara interna de tu muñeca donde sientes el pulso'
+              : 'une con firmeza serena la yema de tu pulgar y tu índice de tu mano dominante';
+
+          return `Respira profundo por la nariz... y suelta el aire despacio. Tu ancla "${cleanPhrase}" ya está lista para usar. Vamos a activarla juntos en este momento. Lleva tu atención a tu ${selectedPointObj.shortLabel.toLowerCase()}, y ${pointAction} con una presión firme pero tranquila. Sostén ese contacto... uno... dos... tres. Siente cómo una certeza serena y estable despierta desde tu pecho hacia tus hombros. Repite en silencio contigo mismo: "${cleanPhrase}". Ahora suelta suavemente el contacto, toma una respiración natural y guarda la tranquilidad de saber que este estado de poder te acompaña hoy y en todo tu nuevo ciclo.`;
+        }, [anchorPoint, cleanPhrase, selectedPointObj.shortLabel]);
+
+        const getPhaseScript = (stepNum) => {
+          const pointAction =
+            anchorPoint === 'pecho'
+              ? 'apoya tu mano abierta y cálida justo sobre el centro de tu pecho'
+              : anchorPoint === 'muneca'
+              ? 'presiona suavemente con tres dedos la cara interna de tu muñeca donde sientes el pulso'
+              : 'une con firmeza serena la yema de tu pulgar y tu índice de tu mano dominante';
+          if (stepNum === 1) {
+            return 'Paso uno. Respira profundo en cuatro tiempos, sostén dos segundos y exhala largo en seis. Suelta tus hombros, relaja la mandíbula y siente ambos pies firmes en la tierra.';
+          }
+          if (stepNum === 2) {
+            return 'Paso dos. Trae a tu mente un recuerdo real en el que te sentiste completamente capaz, sereno y con claridad. Deja que esa fuerza llene todo tu cuerpo.';
+          }
+          if (stepNum === 3) {
+            return `Paso tres. En el punto más alto de esa emoción, ${pointAction} con firmeza constante y repite por dentro: "${cleanPhrase}".`;
+          }
+          return `Paso cuatro. Suelta el contacto físico, toma una respiración neutra y vuelve a tocar tu ${selectedPointObj.shortLabel.toLowerCase()} durante tres segundos para verificar tu ancla.`;
+        };
+
+        const stopVoiceGuide = () => {
+          if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+          }
+          setIsVoicePlaying(false);
+        };
+
+        useEffect(() => {
+          return () => stopVoiceGuide();
+        }, []);
+
+        const pickMexicanMaleVoice = () => {
+          if (!('speechSynthesis' in window)) return null;
+          const voices = window.speechSynthesis.getVoices() || [];
+          const mxVoices = voices.filter((v) => v.lang && v.lang.toLowerCase().includes('es-mx'));
+          const maleKeywords = /(raul|jorge|carlos|diego|mateo|pablo|alonso|dario|andres|male|hombre)/i;
+          return (
+            mxVoices.find((v) => maleKeywords.test(v.name)) ||
+            mxVoices[0] ||
+            voices.find((v) => v.lang && v.lang.toLowerCase().startsWith('es') && maleKeywords.test(v.name)) ||
+            voices.find((v) => v.lang && v.lang.toLowerCase().startsWith('es')) ||
+            null
+          );
+        };
+
+        const speakText = (textToSpeak, trackState = false) => {
+          if (!('speechSynthesis' in window)) return;
+          window.speechSynthesis.cancel();
+          const utterance = new SpeechSynthesisUtterance(textToSpeak);
+          const chosenVoice = pickMexicanMaleVoice();
+          if (chosenVoice) utterance.voice = chosenVoice;
+          utterance.lang = 'es-MX';
+          utterance.rate = 0.88;
+          utterance.pitch = 0.84;
+          if (trackState) {
+            utterance.onend = () => setIsVoicePlaying(false);
+            utterance.onerror = () => {
+              setIsVoicePlaying(false);
+              setVoiceError('No se pudo reproducir la voz del navegador.');
+            };
+            setIsVoicePlaying(true);
+          }
+          window.speechSynthesis.speak(utterance);
+        };
+
+        const handleToggleVoiceGuide = () => {
+          setVoiceError(null);
+          if (!('speechSynthesis' in window)) {
+            setVoiceError('Tu navegador no soporta síntesis de voz nativa.');
+            return;
+          }
+          if (isVoicePlaying) {
+            stopVoiceGuide();
+            return;
+          }
+          speakText(mexicanScript, true);
+        };
+
+        useEffect(() => {
+          if (!isRunning) return;
+          const timerId = window.setInterval(() => {
+            setElapsedSec((prev) => {
+              const next = prev + 1;
+              if (next >= anchorDuration) {
+                setIsRunning(false);
+                setIsCompleted(true);
+                playSoftChime('complete');
+                return anchorDuration;
+              }
+              return next;
+            });
+          }, 1000);
+          return () => window.clearInterval(timerId);
+        }, [isRunning, anchorDuration]);
+
+        useEffect(() => {
+          if (isRunning && currentPhase.step !== prevStepRef.current) {
+            prevStepRef.current = currentPhase.step;
+            playSoftChime('phase');
+            speakText(getPhaseScript(currentPhase.step), false);
+          }
+        }, [currentPhase.step, isRunning]);
+
+        const remainingSec = Math.max(0, anchorDuration - elapsedSec);
+        const minutesStr = String(Math.floor(remainingSec / 60)).padStart(2, '0');
+        const secondsStr = String(remainingSec % 60).padStart(2, '0');
+
+        const handleStartOrToggle = () => {
+          if (isCompleted) {
+            stopVoiceGuide();
+            setElapsedSec(0);
+            setIsCompleted(false);
+            setLogSaved(false);
+            prevStepRef.current = 1;
+            setIsRunning(true);
+            playSoftChime('phase');
+            speakText(getPhaseScript(1), false);
+            return;
+          }
+          if (!isRunning && elapsedSec === 0) {
+            playSoftChime('phase');
+            speakText(getPhaseScript(1), false);
+            setIsRunning(true);
+            return;
+          }
+          if (isRunning) {
+            stopVoiceGuide();
+            setIsRunning(false);
+          } else {
+            setIsRunning(true);
+          }
+        };
+
+        const handleReset = () => {
+          stopVoiceGuide();
+          setIsRunning(false);
+          setElapsedSec(0);
+          setIsCompleted(false);
+          setLogSaved(false);
+          prevStepRef.current = 1;
+        };
+
+        const handleJumpToReadyAnchor = () => {
+          stopVoiceGuide();
+          setIsRunning(false);
+          setElapsedSec(anchorDuration);
+          setIsCompleted(true);
+          setLogSaved(false);
+        };
+
+        const handleSaveSession = () => {
+          onLogCompletion({
+            completedAt: new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }),
+            point: anchorPoint,
+            phrase: cleanPhrase,
+            durationSec: anchorDuration,
+            intensity,
+          });
+          setLogSaved(true);
+        };
+
+        const ringCircumference = 2 * Math.PI * 104;
+        const ringOffset = ringCircumference * (1 - progressRatio);
+        const isFijacionPhase = currentPhase.step === 3;
+
+        return (
+          <section aria-labelledby="ancla-heading" className="space-y-8 sm:space-y-10">
+            <div className="space-y-3 max-w-2xl">
+              <div className="flex items-center gap-2 text-xs font-medium text-amber-200">
+                <span>04. Ancla de Poder PNL</span>
+                <span aria-hidden="true">·</span>
+                <span>Instalación Cinestésica Guiada</span>
+              </div>
+              <h1 id="ancla-heading" className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#FFFDF9] leading-tight" style={{ textWrap: 'balance' }}>
+                Instala tu Ancla de Poder para el Nuevo Ciclo
+              </h1>
+              <p className="text-sm sm:text-base text-red-50/90 leading-relaxed">
+                En PNL, un ancla cinestésica conecta un estado emocional cumbre con un estímulo táctil preciso. Configura tu punto físico y pulsa Iniciar Anclaje para seguir la guía automática.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <div className="lg:col-span-5 space-y-6">
+                <div className="p-6 rounded-2xl bg-[#FFFDF9] border border-amber-200/60 space-y-5 text-slate-900">
+                  <div className="space-y-2">
+                    <label className="block text-xs font-medium text-slate-600">1. Punto de anclaje físico</label>
+                    <div className="grid grid-cols-3 gap-2">
+                      {ANCHOR_POINTS.map((point) => (
+                        <button
+                          key={point.id}
+                          type="button"
+                          disabled={isRunning}
+                          onClick={() => onChangePoint(point.id)}
+                          className={`min-h-[44px] px-2.5 py-2 rounded-xl text-xs font-medium cursor-pointer disabled:opacity-70 ${anchorPoint === point.id ? 'bg-[#991B1B] text-white' : 'bg-[#FDF7F2] text-slate-700 border border-amber-200/60 hover:bg-amber-50'}`}
+                        >
+                          {point.shortLabel}
+                        </button>
+                      ))}
+                    </div>
+                    <p className="text-xs text-slate-600 leading-relaxed pt-1">{selectedPointObj.instruction}</p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="anchor-phrase-input" className="block text-xs font-medium text-slate-600">2. Palabra o estado ancla</label>
+                    <input id="anchor-phrase-input" type="text" disabled={isRunning} value={anchorPhrase} onChange={(e) => onChangePhrase(e.target.value)} className="w-full min-h-[44px] px-3.5 py-2 rounded-xl bg-white border border-amber-200/80 text-sm text-slate-900 disabled:opacity-75" />
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {ANCHOR_PHRASE_PRESETS.map((preset) => (
+                        <button key={preset} type="button" disabled={isRunning} onClick={() => onChangePhrase(preset)} className="min-h-[34px] px-2.5 py-1 rounded-lg bg-[#FDF7F2] hover:bg-red-50 text-xs text-slate-700 hover:text-[#991B1B] border border-amber-200/50 cursor-pointer">
+                          {preset}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <span className="block text-xs font-medium text-slate-600">3. Duración del ciclo guiado</span>
+                    <div className="grid grid-cols-2 gap-2">
+                      {[90, 120].map((sec) => (
+                        <button
+                          key={sec}
+                          type="button"
+                          disabled={isRunning}
+                          onClick={() => {
+                            onChangeDuration(sec);
+                            handleReset();
+                          }}
+                          className={`min-h-[44px] px-3 py-2 rounded-xl text-xs font-medium font-mono tabular-nums cursor-pointer disabled:opacity-70 ${anchorDuration === sec ? 'bg-[#15803D] text-white' : 'bg-[#FDF7F2] text-slate-700 border border-amber-200/60 hover:bg-amber-50'}`}
+                        >
+                          {sec} segundos
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-6 rounded-2xl bg-[#FFFDF9] border border-amber-200/60 space-y-3 text-slate-900">
+                  <h2 className="font-editorial text-xl font-semibold text-slate-900 mb-2">Secuencia de 4 pasos</h2>
+                  <ol className="space-y-2.5">
+                    {ANCHOR_PHASES.map((phase) => {
+                      const isCurrent = !isCompleted && currentPhase.step === phase.step;
+                      const isPast = isCompleted || progressRatio >= phase.ratioEnd;
+                      return (
+                        <li
+                          key={phase.step}
+                          className={`p-3.5 rounded-xl border transition-colors ${isCurrent ? (phase.step === 3 ? 'bg-amber-50 border-[#D97706]/60' : 'bg-red-50/75 border-[#991B1B]/45') : isPast ? 'bg-emerald-50/40 border-emerald-200/70 opacity-85' : 'bg-white border-amber-100'}`}
+                        >
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-xs font-mono font-medium tabular-nums text-slate-500">Paso 0{phase.step}</span>
+                            {isPast && <IconCheckCircle className="w-4 h-4 text-[#15803D]" />}
+                          </div>
+                          <p className="text-sm font-semibold text-slate-900 mt-0.5">{phase.title}</p>
+                          <p className="text-xs text-slate-500 mt-0.5">{phase.breathCue}</p>
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </div>
+              </div>
+
+              <div className="lg:col-span-7">
+                <div className={`p-6 sm:p-10 rounded-3xl border flex flex-col items-center text-center space-y-7 text-slate-900 ${isFijacionPhase && !isCompleted ? 'bg-gradient-to-b from-amber-50 via-[#FFFDF9] to-[#FDF7F2] border-[#D97706]' : 'bg-gradient-to-b from-[#FFFDF9] via-[#FFFDF9] to-[#FDF7F2] border-amber-200/70'}`}>
+                  <div className="space-y-1.5">
+                    <p className="text-xs font-medium tracking-wide text-[#991B1B]">
+                      {isCompleted ? 'Ancla Instalada · Estado Verificado' : `Paso 0${currentPhase.step} de 04 · ${currentPhase.subtitle}`}
+                    </p>
+                    <h2 className="font-editorial text-2xl sm:text-3xl font-semibold text-slate-900">
+                      {isCompleted ? `Ancla «${cleanPhrase}» lista para usar` : currentPhase.title}
+                    </h2>
+                  </div>
+
+                  <div className="relative w-56 h-56 sm:w-64 sm:h-64 flex items-center justify-center">
+                    <div className={`absolute inset-4 rounded-full ${isRunning || isVoicePlaying ? 'animate-breathe' : ''} ${isFijacionPhase && !isCompleted ? 'bg-amber-200/45' : 'bg-red-200/35'}`} aria-hidden="true" />
+                    <svg className="w-full h-full -rotate-90 relative z-10" viewBox="0 0 240 240" aria-hidden="true">
+                      <circle cx="120" cy="120" r="104" fill="none" stroke="#FDE68A" strokeOpacity="0.45" strokeWidth="6" />
+                      <circle
+                        cx="120"
+                        cy="120"
+                        r="104"
+                        fill="none"
+                        stroke={isCompleted || isFijacionPhase ? '#D97706' : '#15803D'}
+                        strokeWidth="7"
+                        strokeLinecap="round"
+                        strokeDasharray={ringCircumference}
+                        strokeDashoffset={ringOffset}
+                        style={{ transition: 'stroke-dashoffset 0.7s linear' }}
+                      />
+                    </svg>
+                    <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6">
+                      <span className="font-mono text-4xl sm:text-5xl font-semibold tabular-nums text-slate-900">{minutesStr}:{secondsStr}</span>
+                      <span className="text-xs font-medium text-slate-600 mt-2 max-w-[160px]">
+                        {isCompleted ? selectedPointObj.shortLabel : currentPhase.breathCue}
+                      </span>
+                    </div>
+                  </div>
+
+                  {!isCompleted ? (
+                    <div className="max-w-lg space-y-4">
+                      <p className="text-sm sm:text-base leading-relaxed text-slate-700">{currentPhase.instruction}</p>
+                      {isFijacionPhase && (
+                        <div className="p-4 rounded-2xl bg-amber-100/70 border border-amber-300/70 text-sm text-amber-950 font-medium">
+                          Presiona ahora tu <span className="underline decoration-[#D97706]">{selectedPointObj.label.toLowerCase()}</span> y repite mentalmente: &ldquo;{cleanPhrase}&rdquo;
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="w-full max-w-lg space-y-5 text-left">
+                      <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-[#FDF7F2] via-white to-amber-50/70 border border-[#991B1B]/25 space-y-4">
+                        <div>
+                          <p className="text-xs font-medium text-[#991B1B]">Guía Auditiva · Voz de Hombre Mexicano</p>
+                          <h3 className="font-editorial text-xl font-semibold text-slate-900 mt-0.5">
+                            Activación guiada de «{cleanPhrase}»
+                          </h3>
+                          <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                            Cierra los ojos por unos segundos y sigue la voz serena del guía para disparar y verificar tu ancla en <span className="font-medium text-slate-800">{selectedPointObj.label.toLowerCase()}</span>.
+                          </p>
+                        </div>
+
+                        <div className="flex flex-wrap items-center gap-2.5">
+                          <button type="button" onClick={handleToggleVoiceGuide} className="min-h-[44px] px-5 py-2.5 rounded-xl bg-[#991B1B] hover:bg-[#7F1D1D] text-white text-sm font-medium inline-flex items-center gap-2 cursor-pointer whitespace-nowrap">
+                            {isVoicePlaying ? (<><IconPause /><span>Detener Guía</span></>) : (<><IconPlay /><span>Escuchar Guía Auditiva</span></>)}
+                          </button>
+                          <button type="button" onClick={() => setShowScript((s) => !s)} className="min-h-[44px] px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:text-slate-900 hover:bg-white/80 cursor-pointer">
+                            {showScript ? 'Ocultar guion' : 'Ver guion'}
+                          </button>
+                        </div>
+
+                        {voiceError && <p className="text-xs text-red-700">{voiceError}</p>}
+                        {showScript && (
+                          <p className="p-4 rounded-xl bg-white/95 border border-amber-200/70 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                            &ldquo;{mexicanScript}&rdquo;
+                          </p>
+                        )}
+                      </div>
+
+                      <div className="p-6 rounded-2xl bg-white border border-amber-200/60 space-y-4">
+                        <div className="space-y-1">
+                          <p className="text-sm font-semibold text-slate-900">Registra la intensidad percibida de tu ancla</p>
+                          <p className="text-xs text-slate-600">Califica del 1 al 10 qué tan vívida sentiste tu energía al probar el contacto físico.</p>
+                        </div>
+                        <div className="flex items-center justify-between gap-4">
+                          <input type="range" min={1} max={10} value={intensity} onChange={(e) => setIntensity(Number(e.target.value))} className="w-full accent-[#D97706] cursor-pointer" />
+                          <span className="font-mono text-lg font-semibold tabular-nums text-[#D97706] min-w-[3ch] text-right">{intensity}/10</span>
+                        </div>
+                        <div className="flex flex-col sm:flex-row gap-2.5 pt-1">
+                          {!logSaved ? (
+                            <button type="button" onClick={handleSaveSession} className="flex-1 min-h-[44px] px-4 py-2.5 rounded-xl bg-[#D97706] hover:bg-[#B45309] text-white text-sm font-medium cursor-pointer">
+                              Guardar Sesión en Bitácora
+                            </button>
+                          ) : (
+                            <button type="button" onClick={onOpenBitacora} className="flex-1 min-h-[44px] px-4 py-2.5 rounded-xl bg-[#15803D] hover:bg-[#166534] text-white text-sm font-medium cursor-pointer">
+                              Ver Mi Bitácora Completa
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
+                    <button type="button" onClick={handleStartOrToggle} className="min-h-[48px] px-7 py-3 rounded-xl bg-[#991B1B] hover:bg-[#7F1D1D] text-white font-medium text-sm inline-flex items-center gap-2 shadow-sm cursor-pointer whitespace-nowrap">
+                      {isRunning ? (<><IconPause /><span>Pausar Guía</span></>) : isCompleted ? (<><IconRotateCcw /><span>Repetir Anclaje</span></>) : elapsedSec > 0 ? (<><IconPlay /><span>Continuar</span></>) : (<><IconPlay /><span>Iniciar Anclaje</span></>)}
+                    </button>
+                    {!isCompleted && !isRunning && elapsedSec === 0 && (
+                      <button type="button" onClick={handleJumpToReadyAnchor} className="min-h-[48px] px-4 py-3 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-300/70 text-[#92400E] font-medium text-sm inline-flex items-center gap-2 cursor-pointer whitespace-nowrap">
+                        <span>Ir a Ancla Lista</span>
+                      </button>
+                    )}
+                    {elapsedSec > 0 && !isCompleted && (
+                      <button type="button" onClick={handleReset} aria-label="Reiniciar temporizador" className="min-h-[48px] min-w-[48px] px-3 py-3 rounded-xl bg-white hover:bg-amber-50 border border-amber-200/80 text-slate-600 inline-flex items-center justify-center cursor-pointer">
+                        <IconRotateCcw />
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      };
+
+      /* ---------- Bitácora Summary Modal ---------- */
+      const BitacoraModal = ({ isOpen, onClose, state, totalPurgeTasks, onResetAll }) => {
+        const [copied, setCopied] = useState(false);
+        const [confirmReset, setConfirmReset] = useState(false);
+        if (!isOpen) return null;
+
+        const purgePct = totalPurgeTasks > 0 ? Math.round((state.completedTaskIds.length / totalPurgeTasks) * 100) : 0;
+        const anchorPointLabel = (ANCHOR_POINTS.find((p) => p.id === state.anchorPoint) || ANCHOR_POINTS[0]).label;
+
+        const handleCopySummary = async () => {
+          const standardsText = state.nonNegotiables
+            .map((n, i) => `${i + 1}. [${n.pillar}] ${n.statement.trim() || 'Pendiente de definir'}`)
+            .join('\n');
+          const summary = [
+            'BITÁCORA DEL NUEVO CICLO — EL UMBRAL DEL RENACER (Carlos Luna PNL)',
+            `Purga Física y Digital: ${state.completedTaskIds.length}/${totalPurgeTasks} (${purgePct}%)`,
+            '',
+            'MIS 3 ESTÁNDARES INQUEBRANTABLES:',
+            standardsText,
+            '',
+            `ANCLA DE PODER PNL: ${anchorPointLabel} · "${state.anchorPhrase}"`,
+            `Sesiones ancladas: ${state.anchorLogs.length}`,
+          ].join('\n');
+          try {
+            await navigator.clipboard.writeText(summary);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2500);
+          } catch (e) {}
+        };
+
+        return (
+          <div role="dialog" aria-modal="true" aria-labelledby="bitacora-title" className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-red-950/65 backdrop-blur-sm p-0 sm:p-4">
+            <div className="w-full max-w-2xl bg-[#FFFDF9] text-slate-900 rounded-t-3xl sm:rounded-3xl border border-amber-200/70 shadow-2xl max-h-[90vh] flex flex-col overflow-hidden">
+              <div className="flex items-center justify-between px-6 py-4 border-b border-amber-200/60 bg-[#991B1B] text-[#FFFDF9]">
+                <div>
+                  <p className="text-xs text-amber-200">El Umbral del Renacer</p>
+                  <h2 id="bitacora-title" className="font-editorial text-2xl font-semibold text-[#FFFDF9]">Mi Bitácora del Nuevo Ciclo</h2>
+                </div>
+                <button type="button" onClick={onClose} aria-label="Cerrar bitácora" className="min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center text-red-100 hover:text-white hover:bg-white/10 cursor-pointer">
+                  <IconX />
+                </button>
+              </div>
+
+              <div className="p-6 space-y-6 overflow-y-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="p-4 rounded-2xl bg-white border border-amber-200/60">
+                    <p className="text-xs text-slate-500">Purga Completada</p>
+                    <p className="font-mono text-2xl font-semibold tabular-nums text-[#15803D] mt-1">{purgePct}%</p>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-white border border-amber-200/60">
+                    <p className="text-xs text-slate-500">Estándares Sellados</p>
+                    <p className="font-mono text-2xl font-semibold tabular-nums text-[#D97706] mt-1">{state.nonNegotiables.filter((n) => n.sealed).length}/3</p>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-white border border-amber-200/60">
+                    <p className="text-xs text-slate-500">Anclas Instaladas</p>
+                    <p className="font-mono text-2xl font-semibold tabular-nums text-[#991B1B] mt-1">{state.anchorLogs.length}</p>
+                  </div>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-white border border-amber-200/60 space-y-3">
+                  <h3 className="font-editorial text-xl font-semibold text-slate-900">Tus 3 Estándares Inquebrantables</h3>
+                  <ul className="divide-y divide-slate-100">
+                    {state.nonNegotiables.map((item, idx) => (
+                      <li key={item.id} className="py-3 first:pt-1 last:pb-1 space-y-1">
+                        <div className="flex items-center justify-between text-xs text-slate-500">
+                          <span>0{idx + 1} · {item.pillar}</span>
+                          <span className={item.sealed ? 'text-[#D97706] font-medium' : ''}>{item.sealed ? 'Sellado' : 'Borrador'}</span>
+                        </div>
+                        <p className="text-sm text-slate-800">{item.statement.trim() || 'Aún sin redactar en la pantalla 03.'}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-white border border-amber-200/60 space-y-2">
+                  <h3 className="font-editorial text-xl font-semibold text-slate-900">Ancla de Poder PNL</h3>
+                  <p className="text-sm text-slate-700">
+                    <span className="font-medium text-slate-900">Punto físico:</span> {anchorPointLabel}
+                    <span aria-hidden="true"> · </span>
+                    <span className="font-medium text-slate-900">Frase:</span> &ldquo;{state.anchorPhrase || 'Presencia Inquebrantable'}&rdquo;
+                  </p>
+                  {state.anchorLogs.length > 0 && (
+                    <p className="text-xs text-slate-500 pt-1">
+                      Última intensidad registrada: <span className="font-mono font-medium tabular-nums text-[#D97706]">{state.anchorLogs[state.anchorLogs.length - 1].intensity}/10</span> ({state.anchorLogs[state.anchorLogs.length - 1].completedAt})
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="px-6 py-4 border-t border-amber-200/60 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <button type="button" onClick={handleCopySummary} className="min-h-[44px] px-4 py-2 rounded-xl bg-[#991B1B] hover:bg-[#7F1D1D] text-white text-sm font-medium inline-flex items-center justify-center gap-2 cursor-pointer">
+                  {copied ? (<><IconCheck /><span>Resumen copiado</span></>) : (<><IconCopy /><span>Copiar Bitácora</span></>)}
+                </button>
+                {!confirmReset ? (
+                  <button type="button" onClick={() => setConfirmReset(true)} className="min-h-[44px] px-3 py-2 rounded-xl text-xs font-medium text-slate-500 hover:text-red-700 hover:bg-red-50 inline-flex items-center gap-1.5 cursor-pointer">
+                    <IconRotateCcw className="w-3.5 h-3.5" />
+                    <span>Reiniciar todo</span>
+                  </button>
+                ) : (
+                  <div className="flex items-center gap-2 text-xs">
+                    <button type="button" onClick={() => { onResetAll(); setConfirmReset(false); }} className="min-h-[38px] px-3 py-1.5 rounded-lg bg-[#991B1B] text-white font-medium hover:bg-[#7F1D1D] cursor-pointer">Confirmar reinicio</button>
+                    <button type="button" onClick={() => setConfirmReset(false)} className="min-h-[38px] px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 font-medium cursor-pointer">Cancelar</button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      };
+
+      /* ---------- Main Application ---------- */
+      function App() {
+        const [activeScreen, setActiveScreen] = useState(1);
+        const [purgeFilter, setPurgeFilter] = useState('all');
+        const [isBitacoraOpen, setIsBitacoraOpen] = useState(false);
+        const [ritualState, setRitualState] = useState(() => {
+          try {
+            const raw = window.localStorage.getItem(STORAGE_KEY);
+            if (!raw) return DEFAULT_STATE;
+            const parsed = JSON.parse(raw);
+            return {
+              ...DEFAULT_STATE,
+              ...parsed,
+              nonNegotiables: Array.isArray(parsed.nonNegotiables) && parsed.nonNegotiables.length === 3 ? parsed.nonNegotiables : DEFAULT_STATE.nonNegotiables,
+              completedTaskIds: Array.isArray(parsed.completedTaskIds) ? parsed.completedTaskIds : [],
+              customTasks: Array.isArray(parsed.customTasks) ? parsed.customTasks : [],
+              anchorLogs: Array.isArray(parsed.anchorLogs) ? parsed.anchorLogs : [],
+            };
+          } catch (e) {
+            return DEFAULT_STATE;
+          }
+        });
+
+        useEffect(() => {
+          try {
+            window.localStorage.setItem(STORAGE_KEY, JSON.stringify(ritualState));
+          } catch (e) {}
+        }, [ritualState]);
+
+        const allPurgeTasks = useMemo(
+          () => [...INITIAL_PURGE_TASKS, ...ritualState.customTasks],
+          [ritualState.customTasks]
+        );
+
+        const handleNavigate = (screen, recommendedCategory) => {
+          if (screen === 2 && recommendedCategory) setPurgeFilter(recommendedCategory);
+          setActiveScreen(screen);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        const handleToggleTask = (taskId) => {
+          setRitualState((prev) => ({
+            ...prev,
+            completedTaskIds: prev.completedTaskIds.includes(taskId)
+              ? prev.completedTaskIds.filter((id) => id !== taskId)
+              : [...prev.completedTaskIds, taskId],
+          }));
+        };
+
+        const handleAddCustomTask = (category, title, detail) => {
+          const newTask = {
+            id: `custom-${Date.now()}`,
+            category,
+            title,
+            detail,
+            pnlReason: 'Compromiso específico elegido por ti para cerrar un frente abierto y recuperar claridad visual.',
+            isCustom: true,
+          };
+          setRitualState((prev) => ({ ...prev, customTasks: [...prev.customTasks, newTask] }));
+        };
+
+        const handleDeleteCustomTask = (taskId) => {
+          setRitualState((prev) => ({
+            ...prev,
+            customTasks: prev.customTasks.filter((t) => t.id !== taskId),
+            completedTaskIds: prev.completedTaskIds.filter((id) => id !== taskId),
+          }));
+        };
+
+        const handleUpdateNonNegotiable = (id, patch) => {
+          setRitualState((prev) => ({
+            ...prev,
+            nonNegotiables: prev.nonNegotiables.map((item) => (item.id === id ? { ...item, ...patch } : item)),
+          }));
+        };
+
+        const navItems = [
+          { id: 1, label: '01. Vacío Fértil', mobileLabel: 'Vacío', Icon: IconCompass },
+          { id: 2, label: '02. Purga', mobileLabel: 'Purga', Icon: IconCheckSquare },
+          { id: 3, label: '03. Estándares', mobileLabel: 'Estándares', Icon: IconShield },
+          { id: 4, label: '04. Ancla PNL', mobileLabel: 'Ancla', Icon: IconAnchor },
+        ];
+
+        return (
+          <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#991B1B] via-[#8B1520] to-[#7F1D1D] text-[#FFFDF9] pb-20 md:pb-0">
+            <header className="sticky top-0 z-30 h-14 bg-[#7F1D1D]/90 backdrop-blur-md border-b border-amber-200/20">
+              <div className="max-w-6xl mx-auto h-full px-4 sm:px-6 flex items-center justify-between gap-8">
+                <button type="button" onClick={() => handleNavigate(1)} className="font-editorial text-xl font-semibold tracking-tight text-[#FFFDF9] whitespace-nowrap shrink-0 cursor-pointer">
+                  El Umbral del Renacer
+                </button>
+                <nav aria-label="Etapas del ritual" className="hidden md:flex items-center gap-6 text-sm font-medium">
+                  {navItems.map((item) => (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => handleNavigate(item.id)}
+                      className={`py-1 transition-colors whitespace-nowrap shrink-0 cursor-pointer border-b-2 ${activeScreen === item.id ? 'text-[#FDE68A] border-[#FBBF24]' : 'text-red-100/85 border-transparent hover:text-white'}`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </nav>
+                <div className="flex items-center shrink-0">
+                  <button type="button" onClick={() => setIsBitacoraOpen(true)} className="min-h-[38px] px-4 py-1.5 rounded-lg bg-[#FFFDF9] hover:bg-amber-50 text-[#7F1D1D] text-xs font-semibold inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 cursor-pointer">
+                    <IconBook />
+                    <span>Mi Bitácora</span>
+                  </button>
+                </div>
+              </div>
+            </header>
+
+            <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+              {activeScreen === 1 && (
+                <ScreenVacioFertil
+                  saturationFocus={ritualState.saturationFocus}
+                  onSelectSaturation={(focus) => setRitualState((prev) => ({ ...prev, saturationFocus: focus }))}
+                  onNavigate={handleNavigate}
+                  completedPurgeCount={ritualState.completedTaskIds.length}
+                  totalPurgeCount={allPurgeTasks.length}
+                />
+              )}
+              {activeScreen === 2 && (
+                <ScreenPurgaChecklist
+                  tasks={allPurgeTasks}
+                  completedTaskIds={ritualState.completedTaskIds}
+                  activeFilter={purgeFilter}
+                  onChangeFilter={setPurgeFilter}
+                  onToggleTask={handleToggleTask}
+                  onAddCustomTask={handleAddCustomTask}
+                  onDeleteCustomTask={handleDeleteCustomTask}
+                  onResetCompleted={() => setRitualState((prev) => ({ ...prev, completedTaskIds: [] }))}
+                  onNavigate={handleNavigate}
+                />
+              )}
+              {activeScreen === 3 && (
+                <ScreenNonNegotiables
+                  items={ritualState.nonNegotiables}
+                  onUpdateItem={handleUpdateNonNegotiable}
+                  onNavigate={handleNavigate}
+                />
+              )}
+              {activeScreen === 4 && (
+                <ScreenAnclaPNL
+                  anchorPoint={ritualState.anchorPoint}
+                  anchorPhrase={ritualState.anchorPhrase}
+                  anchorDuration={ritualState.anchorDuration}
+                  anchorLogs={ritualState.anchorLogs}
+                  onChangePoint={(point) => setRitualState((prev) => ({ ...prev, anchorPoint: point }))}
+                  onChangePhrase={(phrase) => setRitualState((prev) => ({ ...prev, anchorPhrase: phrase }))}
+                  onChangeDuration={(duration) => setRitualState((prev) => ({ ...prev, anchorDuration: duration }))}
+                  onLogCompletion={(log) => setRitualState((prev) => ({ ...prev, anchorLogs: [...prev.anchorLogs, log] }))}
+                  onOpenBitacora={() => setIsBitacoraOpen(true)}
+                />
+              )}
+            </main>
+
+            <footer className="border-t border-amber-200/20 bg-[#7F1D1D]/70">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-red-100/85">
+                <p>Basado en el e-book &ldquo;El Umbral del Renacer&rdquo; de Carlos Luna PNL.</p>
+                <p className="text-[#FDE68A]">Aplicación interactiva autocontenida · Ancla de Poder y Nuevo Ciclo</p>
+              </div>
+            </footer>
+
+            <nav aria-label="Navegación móvil" className="md:hidden fixed bottom-0 left-0 right-0 z-40 h-16 bg-[#7F1D1D]/95 backdrop-blur-md border-t border-amber-200/20 grid grid-cols-4 items-center px-1">
+              {navItems.map((item) => {
+                const active = activeScreen === item.id;
+                const Icon = item.Icon;
+                return (
+                  <button key={item.id} type="button" onClick={() => handleNavigate(item.id)} className={`min-h-[48px] flex flex-col items-center justify-center gap-1 rounded-xl cursor-pointer ${active ? 'text-[#FDE68A]' : 'text-red-100/75 hover:text-white'}`}>
+                    <Icon className="w-5 h-5" />
+                    <span className="text-[11px] font-medium tracking-tight leading-none">{item.mobileLabel}</span>
+                  </button>
+                );
+              })}
+            </nav>
+
+            <BitacoraModal
+              isOpen={isBitacoraOpen}
+              onClose={() => setIsBitacoraOpen(false)}
+              state={ritualState}
+              totalPurgeTasks={allPurgeTasks.length}
+              onResetAll={() => {
+                setRitualState(DEFAULT_STATE);
+                setPurgeFilter('all');
+                setActiveScreen(1);
+                setIsBitacoraOpen(false);
+              }}
+            />
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
